@@ -129,6 +129,24 @@ a:visited {
 #game .board .tile[value="2048"]{ background-color: #00ff00 !important; }
 #game .board .tile[value="4096"]{ background-color: #7fff7f !important; }
 #game .board .tile[value="8192"]{ background-color: #afafaf !important; }
+
+@keyframes surge {
+    from {
+        opacity: 0.75;
+        transform: scale(0.75);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.25);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+#game .board .tile:not(.ghostTile) {
+    transition-duration: var(--animSpeed);
+    animation: surge var(--animSpeed);
+}
 #game .board .tile {
     width: var(--tileSize);
     height: var(--tileSize);
