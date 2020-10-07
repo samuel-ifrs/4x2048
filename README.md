@@ -18,6 +18,9 @@ Alguns recursos extras que poderão ser incluídos no jogo são:
 - [ ] Placar global - requer algum tipo de banco de dados, então possivelmente não iremos implementar
 - [ ] Missôes que vão aparecendo que ao serem concluídas ajudam o jogador ou dão pontos extras
 
+## Diário
+Caso você queira acompanhar o progresso do projeto, considere visitar nosso [Diário de bordo](https://github.com/samuel-ifrs/4x2048/issues/1)
+
 ## Tecnologias utilizadas
 Esse projeto pretende utilizar apenas as tecnologias básicas de qualquer projeto web, sendo estas:
 - HTML
