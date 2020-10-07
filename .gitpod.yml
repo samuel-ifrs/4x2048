@@ -1,9 +1,23 @@
 image:
-  file: .gitpod.Dockerfile
-# This is to get rid of the annoying popup feel free to leave this out
+  file: Dockerfile
 ports:
-  - port: 9000
+  - port: 8080
+    onOpen: open-preview
+  - port: 3306
     onOpen: ignore
-vscode:
-  extensions:
-    - felixfbecker.php-debug@1.13.0:WX8Y3EpQk3zgahy41yJtNQ==
+checkoutLocation: "lamp"
+workspaceLocation: "."
+tasks:
+  - name: MySQL
+    command: >
+        mysqld --initialize-insecure;
+        mysqld &
+        sleep 5;
+        cd $GITPOD_REPO_ROOT;
+  - name: Apache
+    command: >
+        apachectl start;
+  - name: Lamp
+    command: >
+        chmod 777 $GITPOD_REPO_ROOT/.htaccess;
+        cd $GITPOD_REPO_ROOT;
