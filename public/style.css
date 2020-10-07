@@ -99,3 +99,59 @@ a {
 a:visited {
     color: #5f2f10;
 }
+
+#game {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+#game .board {
+    position: relative;
+    width: calc(calc(var(--tileSize) * var(--boardSize)) + calc(var(--boardSize) + 1) * var(--borderSize));
+    height: calc(calc(var(--tileSize) * var(--boardSize)) + calc(var(--boardSize) + 1) * var(--borderSize));
+    background-color: var(--borderColor);
+    padding: var(--borderSize);
+    margin: 10px;
+    border-radius: 10px;
+}
+#game .board .tile[value]{ background-color: #ffffff; }
+#game .board .tile[value="1"]{ background-color: #afaf70 !important; }
+#game .board .tile[value="2"]{ background-color: #cfaf70 !important; }
+#game .board .tile[value="4"]{ background-color: #efaf70 !important; }
+#game .board .tile[value="8"]{ background-color: #af7f70 !important; }
+#game .board .tile[value="16"]{ background-color: #af7fa0 !important; }
+#game .board .tile[value="32"]{ background-color: #af7fd0 !important; }
+#game .board .tile[value="64"]{ background-color: #7f7fff !important; }
+#game .board .tile[value="128"]{ background-color: #afafff !important; }
+#game .board .tile[value="256"]{ background-color: #dfdfff !important; }
+#game .board .tile[value="512"]{ background-color: #7f7f7f !important; }
+#game .board .tile[value="1024"]{ background-color: #9f9f9f !important; }
+#game .board .tile[value="2048"]{ background-color: #00ff00 !important; }
+#game .board .tile[value="4096"]{ background-color: #7fff7f !important; }
+#game .board .tile[value="8192"]{ background-color: #afafaf !important; }
+#game .board .tile {
+    width: var(--tileSize);
+    height: var(--tileSize);
+    position: absolute;
+    left: calc(calc(var(--posX) * var(--tileSize)) + calc(calc(var(--posX) + 1) * var(--borderSize)));
+    top: calc(calc(var(--posY) * var(--tileSize)) + calc(calc(var(--posY) + 1) * var(--borderSize)));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    z-index: 1;
+    opacity: 0.9;
+    overflow: hidden;
+}
+#game .board .tile:after {
+    content: attr(value);
+    font-size: 1.2rem;
+}
+#game .board .ghostTile {
+    z-index: 0 !important;
+    background-color: var(--baseColor);
+    opacity: 1;
+}
+#game .board .ghostTile:after {
+    display: none;
+}
