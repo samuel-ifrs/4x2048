@@ -78,6 +78,7 @@ window.onload = ()=>{
                         tile.object.remove();
                 }
                 tile.object.style.opacity = 0;
+                tile.object.style.transform = 'scale(0.75)';
                 board.tiles[board.tiles.indexOf(tile)] = null;
             }
         }
