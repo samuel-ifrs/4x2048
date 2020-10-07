@@ -1,6 +1,6 @@
 window.boards = [];
 window.onload = ()=>{
-    function createBoard(divBoard){
+    function createBoard(){
         const options = {
             boardSize: 4,
             tileSize: '64px',
@@ -11,7 +11,8 @@ window.onload = ()=>{
         };
         const board = {};
         board.options = options;
-        board.element = divBoard;
+        board.element = document.createElement('div');
+        board.element.className = 'board';
         board.tiles = [];
 
         for(const opt in options){
@@ -86,14 +87,14 @@ window.onload = ()=>{
         board.newTile = newTile;
         board.removeTile = removeTile;
         board.moveTile = moveTile;
-
         return board;
     }
 
-    window.boards.push(createBoard(document.getElementById('board1')));
-    window.boards.push(createBoard(document.getElementById('board2')));
-    window.boards.push(createBoard(document.getElementById('board3')));
-    window.boards.push(createBoard(document.getElementById('board4')));
+    for(let i=0;i<4;i++){
+        const board = createBoard();
+        window.boards.push(board);
+        document.getElementById('game').appendChild(board.element);
+    } 
 };
 
 window.teste = () => {
@@ -104,14 +105,16 @@ window.teste = () => {
         () => boards[0].moveTile(1, 1, 0, 1),
         () => boards[0].moveTile(0, 1, 0, 0),
         () => boards[0].moveTile(0, 0, 0, 1),
-        () => boards[0].moveTile(0, 1, 1, 1),
-        () => console.log('Pronto!')
+        () => boards[0].moveTile(0, 1, 1, 1)
     ];
-    (function fazTeste() {
-        passos.shift()();  
-        if(passos.length > 0){
-            setTimeout(fazTeste, 500);
-        }
+    console.log('[..] Teste automatizado');
+    (function fazTeste(intervalo = 500) {
+        const passo = passos.shift();
+        console.log(" [->]", passo, "\n [<-] ");
+        console.log(passo());
+        if(passos.length > 0)
+            setTimeout(fazTeste, intervalo);
+        else
+            console.log('[OK] Teste concluído');
     })()
-
 }
