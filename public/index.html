@@ -1,0 +1,50 @@
+<!doctype html>
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4x2048</title>
+    <script src="js/main.js" type="module"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+      window.onload = () => { setTimeout(()=> {window.location.reload(true)}, 1000); };
+    </script>
+    <div id="container">
+        <div id="top">
+            <div id="header">
+                <h1>4x2048</h1>
+                <div class="infos">
+                <span class="info"><span class="infoName">TEMPO</span> <span class="infoValue" id="currentTime">00:00</span></span>
+                    <span class="info"><span class="infoName">PONTOS</span> <span class="infoValue" id="highScore">0</span></span>
+                    <span class="info"><span class="infoName">MELHOR</span> <span class="infoValue" id="highScore">0</span></span>            </div>
+            </div>
+            <div id="toolBar">
+                <span class="description">Una os blocos nos 4 tabuleiros até chegar em <b>2048</b> em todos.</span>
+                <button id="newGame">Novo jogo</button>
+            </div>
+        </div>
+        <div id="game">
+            <div class="board" id="board1">
+            </div>
+            <div class="board" id="board2">
+            </div>
+            <div class="board" id="board3">
+            </div>
+            <div class="board" id="board4">
+            </div>
+        </div>
+        <dl id="footer">
+            <dt>Como jogar</dt>
+            <dd>Use as <b>setas direcionais</b> para mover os blocos nos tabuleiros. Quando dois blocos com o mesmo valor se tocam, eles mergem em um novo bloco com a soma dos dois blocos anteriores. Você precisa ter um bloco com 2048 em cada tabuleiro para vencer. Caso algum tabuleiro fique sem espaço para uma nova peça ou movimento, você perde.</dd>
+            <dt>Observação!</dt>
+            <dd>O jogo original do 2048 pode ser encontrado <a href="http://git.io/2048">AQUI</a>
+            <dt>Sobre este projeto</dt>
+            <dd>Este projeto foi desenvolvido por <a href="http://devsa.com.br">Samuel Andrade</a> e você pode obter mais informações sobre ele no <a href="https://github.com/samuel-ifrs/4x2048">repositório do GitHub</a>.</dd>
+        </dl>
+    </div>
+</body>
+</html>

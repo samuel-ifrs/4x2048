@@ -8,12 +8,6 @@ ports:
 checkoutLocation: "lamp"
 workspaceLocation: "."
 tasks:
-  - name: MySQL
-    command: >
-        mysqld --initialize-insecure;
-        mysqld &
-        sleep 5;
-        cd $GITPOD_REPO_ROOT;
   - name: Apache
     command: >
         apachectl start;
