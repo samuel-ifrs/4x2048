@@ -36,3 +36,6 @@ Algumas ideias que definitivamente não serão implementadas neste repositório,
 - **Utilizar WebSockets com Node.JS** - Como a proposta do projeto é ser algo acessível e podemos construir o jogo sem utilizar WebSockets porque o assincronismo não é algo vital para ele, pela ausência de multiplayer, optei por não utilizar essas tecnologias
 - **Multiplayer local cooperativo e competitivo** - Não será implementado porque acredito que fugiria muito da proposta inicial do jogo
 - **Multiplayer online cooperativo e competitivo** - Não será implementado porque acredito que fugiria muito da proposta inicial do jogo e, além disso, iria ampliar muito o nível de complexidade do projeto pela necessidade de assincronismo.
+
+## Sobre o desenvolvedor
+Me chamo **Samuel Andrade**, sou gaucho de Gravataí-RS. Estou começando no GitHub pois quero mostrar pra comunidade de programadores algumas ideias que tenho e meu jeito de programar. Posso trabalhar com as linguagens `C#`, `Delphi`, `Assembly x86/x64`, `PHP`, `JS`, `CSS`, `SQL`, além de engenharia reversa. Sou, além de programador, matemático, o que me ajuda a entender com bastante facilidade assuntos que envolvam lógica, não é um desafio hercúlio aprender uma nova linguagem ou tecnologia. Estou aberrto a oportunidades que surjam nas áreas de programação ou hacking ético (ou não, brincadeirinha).
