@@ -1,4 +1,7 @@
 <?php
+
+require_once('const.php');
+
 Class Board{
 
     private function i2xy($index){
@@ -11,6 +14,8 @@ Class Board{
     private function xy2i($x,$y){
         return (int) ($x + boardSize*$y);
     }
+
+    public $won = false;
 
     public $score = 0;
     
@@ -70,6 +75,7 @@ Class Board{
                     $npx = $px;
                     $npy = $py;
                     $movingTile *= 2;
+                    if($movingTile == 2048) $this->won = true;
                 }
                 $segue = false; 
             } else {
@@ -126,7 +132,7 @@ Class Board{
         $created = null;
         if($moved || (rand(0,10) < 8)){
             $created = $this->createTile();
-            if(!$created)
+            if($created === false)
                 $lose = true;
         }
         $this->lastMoveNew = -1;
