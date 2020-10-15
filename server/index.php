@@ -2,15 +2,18 @@
 
 session_start();
 
+date_default_timezone_set('America/Sao_Paulo');
+
+if(!isset($_SESSION['highScore']))
+    $_SESSION['highScore'] = 0;
+
 require_once ('const.php');
 require_once ('board.php');
 
 function getState(){
 
 }
-
 if(isset($_POST['action'])){
-
     $res = [
         'error' => 'Comando desconhecido'
     ];
@@ -33,7 +36,8 @@ if(isset($_POST['action'])){
             $res = [
                 'tiles' => $boardsTiles,
                 'score' => $score,
-                'startTime' => $startTime
+                'startTime' => $startTime,
+                'highScore' => $_SESSION['highScore']
             ];
         break;
         }
@@ -44,7 +48,7 @@ if(isset($_POST['action'])){
                     if(isset($_SESSION['playing'])) {
                         if($_SESSION['playing']) {
                             $lose = false;
-                            $won = true;
+                            $won = false;
                             $boards = unserialize($_SESSION['boards']);
                             $res = [
                                 'boards' => [],
@@ -58,14 +62,13 @@ if(isset($_POST['action'])){
                                 $curBoard['won'] = $board->won;
                                 $curBoard['score'] = $board->score;
                                 $score += $board->score;
-                                if($move['lose'] & (!$board->won)) {
-                                    $lose = true;
-                                }
-                                $won = $won & $board->won;
                                 $res['boards'] []= $curBoard;
                             }
                             $_SESSION['boards'] = serialize($boards);
                             $_SESSION['score'] = $score;
+                            if($score > $_SESSION['highScore'])
+                                $_SESSION['highScore'] = $score;
+                            $res['highScore'] = $_SESSION['highScore'];
                             $res['lose'] = $lose;
                             $res['won'] = $won;
                             $res['score'] = $score;
