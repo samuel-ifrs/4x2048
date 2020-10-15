@@ -65,13 +65,14 @@ if(isset($_POST['action'])){
                                 $res['boards'] []= $curBoard;
                             }
                             $_SESSION['boards'] = serialize($boards);
+                            $_SESSION['score'] = $score;
                             $res['lose'] = $lose;
                             $res['won'] = $won;
                             $res['score'] = $score;
                             if($lose){
                                 $_SESSION['playing'] = false;
                             }
-                        } else $res = ['error' => 'Essa partida já acabou...'];
+                        } else $res = ['error' => 'Essa partida já acabou...', 'score' => $_SESSION['score']];
                     } else $res = ['error' => 'Primeiro você precisa começar um novo jogo'];
                 } else $res = ['error' => 'Direção inválida'];
             } else $res = ['error' => 'Você precisa definir a direção'];
